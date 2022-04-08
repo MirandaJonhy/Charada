@@ -27,7 +27,10 @@ for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
   for (let columnIndex = 0; columnIndex < columns; columnIndex++) {
     const tileColumn = document.createElement('div')
     tileColumn.setAttribute('id', 'row' + rowIndex + 'column' + columnIndex)
-    tileColumn.setAttribute('class', rowIndex === 0 ? 'tile-column typing' : 'tile-column disabled');
+    tileColumn.setAttribute(
+      'class',
+      rowIndex === 0 ? 'tile-column typing' : 'tile-column disabled'
+    )
     tileRow.append(tileColumn)
     guesses[rowIndex][columnIndex] = ''
   }
@@ -35,53 +38,53 @@ for (let rowIndex = 0; rowIndex < rows; rowIndex++) {
 }
 
 const checkGuess = () => {
-  const guess = guesses[currentRow].join("");
+  const guess = guesses[currentRow].join('')
   if (guess.length !== columns) {
-    return;
+    return
   }
 
-    var currentColumns = document.querySelectorAll(".typing");
+  var currentColumns = document.querySelectorAll('.typing')
   for (let index = 0; index < columns; index++) {
-    const letter = guess[index];
-    if(letrecoMap[letter] === undefined) {
-      currentColumns[index].classList.add("wrong")
+    const letter = guess[index]
+    if (letrecoMap[letter] === undefined) {
+      currentColumns[index].classList.add('wrong')
     } else {
-      if(letrecoMap[letter] === index) {
-        currentColumns[index].classList.add("right")
+      if (letrecoMap[letter] === index) {
+        currentColumns[index].classList.add('right')
       } else {
-        currentColumns[index].classList.add("displaced")
+        currentColumns[index].classList.add('displaced')
       }
     }
   }
 
-  if(guess === letreco) {
-    window.alert("Simplismente o detetive do entretenimento, tá!")
+  if (guess === letreco) {
+    window.alert('Simplismente o detetive do entretenimento, tá!')
     return
-  } {
-    if(currentRow === rows -1) {
-      window.alert("Errou!")
+  }
+  {
+    if (currentRow === rows - 1) {
+      window.alert('Errou!')
     } else {
       moveToNextRow()
     }
   }
-
-};
+}
 
 const moveToNextRow = () => {
-    var typingColumns = document.querySelectorAll(".typing")
-    for (let index = 0; index < typingColumns.length; index++) {
-        typingColumns[index].classList.remove("typing")
-        typingColumns[index].classList.add("disabled")
-    }
-    currentRow++
-    currentColumn=0
+  var typingColumns = document.querySelectorAll('.typing')
+  for (let index = 0; index < typingColumns.length; index++) {
+    typingColumns[index].classList.remove('typing')
+    typingColumns[index].classList.add('disabled')
+  }
+  currentRow++
+  currentColumn = 0
 
-    const currentRowEl = document.querySelector("#row"+currentRow)
-    var currentColumns = currentRowEl.querySelectorAll(".tile-column")
-    for (let index = 0; index < currentColumns.length; index++) {
-        currentColumns[index].classList.remove("disabled")
-        currentColumns[index].classList.add("typing")
-    }
+  const currentRowEl = document.querySelector('#row' + currentRow)
+  var currentColumns = currentRowEl.querySelectorAll('.tile-column')
+  for (let index = 0; index < currentColumns.length; index++) {
+    currentColumns[index].classList.remove('disabled')
+    currentColumns[index].classList.add('typing')
+  }
 }
 
 const handleKeyboardOnClick = key => {
@@ -112,31 +115,32 @@ createKeyboardRow(keysSecondRow, keyboardSecondRow)
 createKeyboardRow(keysThirdRow, keyboardThirdRow)
 
 const handleBackspace = () => {
-  if(currentColumn === 0 ){
+  if (currentColumn === 0) {
     return
   }
 
   currentColumn--
-  guesses[currentRow][currentColumn] = ""
-  const tile = document.querySelector("#row"+currentRow+"column"+currentColumn)
-  tile.textContent = ""
+  guesses[currentRow][currentColumn] = ''
+  const tile = document.querySelector(
+    '#row' + currentRow + 'column' + currentColumn
+  )
+  tile.textContent = ''
 }
-const backspaceButton = document.createElement('button');
-backspaceButton.addEventListener('click', handleBackspace);
-backspaceButton.textContent = '<';
-backspaceAndEnterRow.append(backspaceButton);
+const backspaceButton = document.createElement('button')
+backspaceButton.addEventListener('click', handleBackspace)
+backspaceButton.textContent = '<'
+backspaceAndEnterRow.append(backspaceButton)
 
-
-const enterButton = document.createElement('button');
-enterButton.addEventListener('click', checkGuess);
-enterButton.textContent = 'ENTER';
-backspaceAndEnterRow.append(enterButton);
+const enterButton = document.createElement('button')
+enterButton.addEventListener('click', checkGuess)
+enterButton.textContent = 'ENTER'
+backspaceAndEnterRow.append(enterButton)
 
 document.onkeydown = function (evt) {
   evt = evt || window.evt
-  if(evt.key === "Enter"){
-    checkGuess();
-  } else if (evt.key === "Backspace") {
+  if (evt.key === 'Enter') {
+    checkGuess()
+  } else if (evt.key === 'Backspace') {
     handleBackspace()
   } else {
     handleKeyboardOnClick(evt.key.toUpperCase())
