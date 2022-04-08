@@ -2,6 +2,7 @@
   text-align: center;
   width: 510px;
   margin-top: 1rem;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .letter-yellow {
@@ -11,6 +12,7 @@
 .letter-green {
   color: #51b36e;
 }
+
 .letter-red {
   color: #943e3c;
 }
@@ -28,7 +30,7 @@
 .tile-row {
   margin-bottom: 1rem;
   justify-content: center;
-  display:flex;
+  display: flex;
   box-sizing: border-box;
 }
 
@@ -42,7 +44,7 @@
   font-size: 20px;
   align-items: center;
   justify-content: center;
-  display:flex;
+  display: flex;
 }
 
 .typing {
@@ -83,7 +85,7 @@
 }
 
 .keyboard-row-container.notAlphabetic {
-  width:100%
+  width: 100%
 }
 
 .keyboard-row-container:not(.notAlphabetic) button {
