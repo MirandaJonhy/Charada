@@ -13,6 +13,16 @@ const columns = 5
 let currentRow = 0
 let currentColumn = 0
 const letreco = 'VASCO'
+[“sagaz”,“negro”,“exito”,“mexer”,“termo”,“senso”,“nobre”,“algoz”,“afeto”,“plena”,“etica”,“mutua”,
+ “tenue”,“sutil”,“vigor”,“aquem”,“fazer”,“porem”,“audaz”,“sanar”,“seçao”,“assim”,“inato”,“cerne”,
+ “ideia”,“fosse”,“desde”,“poder”,“moral”,“torpe”,“muito”,“honra”,“justo”,“futil”,“gozar”,“anexo”,
+ “razao”,“etnia”,“quiça”,“sobre”,“icone”,“sonho”,“tange”,“lapso”,“mutuo”,“expor”,“haver”,“amigo”,
+ “habil”,“casal”,“tempo”,“porra”,“seara”,“pesar”,“avido”,“entao”,“posse”,“dengo”,“boçal”,“genro”,
+ “coser”,“ardil”,“corja”,“causa”,“prole”,“paria”,“dizer”,“detem”,“tenaz”,“dever”,“digno”,“saber”,
+ “crivo”,“graça”,“apice”,“ansia”,“animo”,“brado”,“ceder”,“orgia”,“comum”,“sendo”,“temor”,“assaz”,
+ “culto”,“atroz”,“mundo”,“pauta”,“censo”,“fugaz”,“ainda”,“cozer”,“denso”,“valha”,“nenem”,“vicio”,
+ “forte”,“estar”,“vulgo”,“reves”,“pudor”,“regra”,“dogma”,“louco”,“criar”]
+var letreco = things[Math.floor(Math.random()*things.length)];
 let letrecoMap = {}
 for (let index = 0; index < letreco.length; index++) {
   letrecoMap[letreco[index]] = index
@@ -58,12 +68,12 @@ const checkGuess = () => {
   }
 
   if (guess === letreco) {
-    window.alert('Simplismente o detetive do entretenimento, tá!')
+    window.alert('Parabéns, achou :)')
     return
   }
   {
     if (currentRow === rows - 1) {
-      window.alert('Errou!')
+      window.alert(`Errou, a palavra era: ${letreco}`)
     } else {
       moveToNextRow()
     }
