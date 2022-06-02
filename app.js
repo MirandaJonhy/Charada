@@ -12,8 +12,8 @@ const rows = 6
 const columns = 5
 let currentRow = 0
 let currentColumn = 0
-const letreco = 'VASCO'
-[“sagaz”,“negro”,“exito”,“mexer”,“termo”,“senso”,“nobre”,“algoz”,“afeto”,“plena”,“etica”,“mutua”,
+//const letreco = 'VASCO'
+var things = [“sagaz”,“negro”,“exito”,“mexer”,“termo”,“senso”,“nobre”,“algoz”,“afeto”,“plena”,“etica”,“mutua”,
  “tenue”,“sutil”,“vigor”,“aquem”,“fazer”,“porem”,“audaz”,“sanar”,“seçao”,“assim”,“inato”,“cerne”,
  “ideia”,“fosse”,“desde”,“poder”,“moral”,“torpe”,“muito”,“honra”,“justo”,“futil”,“gozar”,“anexo”,
  “razao”,“etnia”,“quiça”,“sobre”,“icone”,“sonho”,“tange”,“lapso”,“mutuo”,“expor”,“haver”,“amigo”,
@@ -22,7 +22,7 @@ const letreco = 'VASCO'
  “crivo”,“graça”,“apice”,“ansia”,“animo”,“brado”,“ceder”,“orgia”,“comum”,“sendo”,“temor”,“assaz”,
  “culto”,“atroz”,“mundo”,“pauta”,“censo”,“fugaz”,“ainda”,“cozer”,“denso”,“valha”,“nenem”,“vicio”,
  “forte”,“estar”,“vulgo”,“reves”,“pudor”,“regra”,“dogma”,“louco”,“criar”]
-var letreco = things[Math.floor(Math.random()*things.length)];
+const letreco = things[Math.floor(Math.random()*things.length)];
 let letrecoMap = {}
 for (let index = 0; index < letreco.length; index++) {
   letrecoMap[letreco[index]] = index
